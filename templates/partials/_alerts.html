@@ -1,0 +1,21 @@
+<!-- all of this is bootstrap so no idea -->
+
+{% if messages %}
+    {% for message in messages %}
+        <div id="message" class="container">
+            <div class="alert alert-{{message.tags}} alert-dismissable text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                        Error:
+                    {% else %}
+                        {{ message.tags | title }}
+                    {% endif %}
+                    {{ message }}
+                </strong>
+            </div> <!-- this shit is bootstrap alert-dismissable text-center and whatever you dont get-->
+        </div>
+    {% endfor %}
+{% endif %}
